@@ -152,12 +152,20 @@ def create_signup():
         activity = Activity.query.get(signup.activity_id)
         
         return jsonify({
-            'id': signup.id,
-            'time': signup.time,
-            'camper_id': signup.camper_id,
-            'activity_id': signup.activity_id,
-            'camper': {'id': camper.id, 'name': camper.name, 'age': camper.age},
-            'activity': {'id': activity.id, 'name': activity.name, 'difficulty': activity.difficulty}
+            "id": signup.id,
+            "camper_id": signup.camper_id,
+            "activity_id": signup.activity_id,
+            "time": signup.time,
+            "activity": {
+                "id": activity.id,
+                "name": activity.name, 
+                "difficulty": activity.difficulty
+            },
+            "camper": {
+                "id": camper.id,
+                "name": camper.name,
+                "age": camper.age
+            }
         }), 201
     except Exception as e:
         db.session.rollback()

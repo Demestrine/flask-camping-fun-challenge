@@ -1,4 +1,4 @@
-from server import db
+from . import db
 from sqlalchemy.orm import validates
 
 class Camper(db.Model):
