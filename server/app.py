@@ -171,5 +171,5 @@ def create_signup():
         db.session.rollback()
         return jsonify({'errors': [str(e)]}), 400
 
-if __name__ == __main__':
+if __name__ == '__main__':
     app.run(port=5555, debug=True)
